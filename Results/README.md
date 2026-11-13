@@ -21,3 +21,5 @@ All data is simulated (complex tones and white Gaussian noise). Nothing comes fr
 
 Reproduce: install the module (see `../Code/src/gr-isac/README.md`), then `bash scripts/run_m4_all.sh OUTPUT_DIR` from the module folder.
 The random generator is seeded, so the Pfa and Pd numbers repeat exactly; the speed numbers depend on the machine and vary by about 10 to 20 percent between runs.
+
+`nikkesh_ubuntu2204_run/` holds the terminal output of the complete M4 run on a team member's laptop (Ubuntu 22.04, GNU Radio 3.10.1.1, Python 3.10.12), from a fresh clone of this repository: `terminal_output_build_and_run.txt` (install, build, ctest, run) and `terminal_output_results.txt` (environment, test log, flake8, demos, experiment summary). The member's own `~/m4_run` files can be added to this folder.

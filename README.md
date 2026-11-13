@@ -53,7 +53,7 @@ Who explains which pull request in the video is listed in the report (section 10
 M4/
 ├── README.md                this file
 ├── Report/                  M4_G5_Report.pdf (and .docx)
-├── Video/                   M4_G5_video_link.txt (link to the 20-minute video), script (PDF)
+├── Video/                   M4_G5_video_link.txt (link to the 20-minute video), video script (.docx, .pdf)
 ├── Proposal/                refined GSoC 2027 proposal v0.2 (.docx, .pdf)
 ├── Code/
 │   ├── README.md            build and run steps
@@ -70,7 +70,7 @@ See `Code/README.md`. In short: install GNU Radio 3.10, build and install `Code/
 
 - Only the Energy Detector exists (now with the M4 features). The OFDM ISAC transmitter, sensing receiver and range-Doppler processing are planned in the proposal, not built.
 - All results use simulated data. Nothing was tested on a real radio.
-- The M4 experiments were run on one cloud machine (Ubuntu 24.04, GNU Radio 3.10.9.2); the M3 tests were also repeated on a team member's Ubuntu 22.04 computer (GNU Radio 3.10.1.1). The M4 scripts have not been run on that computer yet.
+- The M4 experiments were run on one cloud machine (Ubuntu 24.04, GNU Radio 3.10.9.2); the complete M4 run was also repeated by a team member on Ubuntu 22.04 (GNU Radio 3.10.1.1, Python 3.10.12) from a fresh clone of this repository: all 19 tests passed and all Pfa and Pd numbers were identical (`Results/nikkesh_ubuntu2204_run/`). Only the speeds differ.
 - The speed numbers depend on the machine.
 - The total-power decision needs the noise power to be known to within a few tenths of a dB. A method to estimate it is not built yet.
 - The idea is not new: gr-inspector already contains an energy detector. We do not claim novelty; the aim is a tested, documented block that fits a full ISAC chain.
