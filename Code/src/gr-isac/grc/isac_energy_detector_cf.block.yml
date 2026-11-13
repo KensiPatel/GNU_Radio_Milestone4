@@ -1,0 +1,108 @@
+id: isac_energy_detector_cf
+label: Energy Detector
+category: '[isac]'
+flags: [python]
+
+templates:
+  imports: from gnuradio import isac
+  make: isac.energy_detector_cf(${fft_size}, ${avg_len}, ${threshold_db}, ${relative}, ${pfa}, ${noise_power}, ${decision_mode}, ${total_pfa})
+  callbacks:
+  - set_threshold_db(${threshold_db})
+  - set_relative(${relative})
+  - set_pfa(${pfa})
+  - set_noise_power(${noise_power})
+  - set_decision_mode(${decision_mode})
+  - set_total_pfa(${total_pfa})
+
+parameters:
+- id: fft_size
+  label: FFT Size
+  dtype: int
+  default: 1024
+- id: avg_len
+  label: Averages
+  dtype: int
+  default: 8
+- id: threshold_db
+  label: Threshold (dB)
+  dtype: float
+  default: 6.0
+- id: relative
+  label: Threshold Mode
+  dtype: bool
+  default: 'True'
+  options: ['True', 'False']
+  option_labels: [Above noise floor, Absolute level]
+- id: pfa
+  label: Pfa per Bin (0 = use Threshold)
+  dtype: float
+  default: 0.0
+- id: noise_power
+  label: Noise Power (linear)
+  dtype: float
+  default: 1.0
+- id: decision_mode
+  label: Decision
+  dtype: int
+  default: 0
+  options: [0, 1, 2]
+  option_labels: [Any bin occupied, Total power, Either]
+- id: total_pfa
+  label: Pfa of Total Power
+  dtype: float
+  default: 0.01
+
+inputs:
+- label: in
+  domain: stream
+  dtype: complex
+
+outputs:
+- label: psd_db
+  domain: stream
+  dtype: float
+  vlen: ${ fft_size }
+- label: occupied
+  domain: stream
+  dtype: byte
+  vlen: ${ fft_size }
+- label: decision
+  domain: stream
+  dtype: byte
+- domain: message
+  id: bands
+  optional: true
+
+documentation: |-
+  Spectrum-sensing energy detector.
+
+  Takes complex baseband samples, averages Averages FFT frames of FFT Size
+  points (Hann window), and decides for every bin whether it is occupied.
+
+  Outputs
+    psd_db   power spectrum in dB, fft-shifted (0 Hz in the middle)
+    occupied vector of FFT Size bytes, 1 = bin above the threshold
+    decision one byte per output vector, 1 = at least one bin occupied
+
+  Threshold Mode
+    Above noise floor: threshold = estimated noise floor + Threshold (dB).
+    The floor is the median bin power, so it needs a signal that fills
+    less than half of the band.
+    Absolute level: threshold = Threshold (dB), where power 1.0 is 0 dB.
+
+  Pfa per Bin
+    If larger than 0, the threshold is calculated from theory for this
+    false-alarm probability (CFAR) and Threshold (dB) is ignored. Above noise
+    floor: relative to the estimated floor. Absolute level: relative to
+    Noise Power.
+
+  Decision
+    Any bin occupied (default), Total power (mean over all bins above a
+    threshold set by Pfa of Total Power; needs Noise Power to be correct; sees
+    wideband signals), or Either.
+
+  bands (message output, optional)
+    For every output, a list of (low, high) frequencies in cycles per sample
+    for each run of occupied bins.
+
+file_format: 1

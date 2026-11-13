@@ -1,0 +1,12 @@
+Part 1: CFAR threshold (noise power 1, false-alarm probability 1e-3 per bin)
+   1 averages: threshold =  6.91 x noise power =  8.39 dB
+   8 averages: threshold =  2.45 x noise power =  3.90 dB
+  16 averages: threshold =  1.95 x noise power =  2.91 dB
+
+Part 2: a wideband signal, 15 % more power than the noise (400 outputs each)
+  noise only               says 'busy': per-bin test   2.8 %, total power   2.2 % of the outputs
+  noise + wideband signal  says 'busy': per-bin test  16.2 %, total power  99.2 % of the outputs
+
+Part 3: message output 'bands' (two tones, at +40 and -60 bins)
+  occupied band 1:  -238.3 kHz to  -230.5 kHz
+  occupied band 2:   152.3 kHz to   160.2 kHz

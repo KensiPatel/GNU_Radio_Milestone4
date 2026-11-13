@@ -1,0 +1,24 @@
+test_001_instance (__main__.qa_energy_detector_cf.test_001_instance) ... ok
+test_002_bad_arguments (__main__.qa_energy_detector_cf.test_002_bad_arguments) ... ok
+test_003_output_shapes (__main__.qa_energy_detector_cf.test_003_output_shapes) ... ok
+test_004_noise_level_is_normalised (__main__.qa_energy_detector_cf.test_004_noise_level_is_normalised) ... ok
+test_005_tone_is_detected_in_the_right_bin (__main__.qa_energy_detector_cf.test_005_tone_is_detected_in_the_right_bin) ... ok
+test_006_noise_only_is_free_with_a_high_threshold (__main__.qa_energy_detector_cf.test_006_noise_only_is_free_with_a_high_threshold) ... ok
+test_007_absolute_threshold (__main__.qa_energy_detector_cf.test_007_absolute_threshold) ... ok
+test_008_noise_floor_estimate (__main__.qa_energy_detector_cf.test_008_noise_floor_estimate) ... ok
+test_009_false_alarm_rate_matches_theory (__main__.qa_energy_detector_cf.test_009_false_alarm_rate_matches_theory) ... ok
+test_010_matches_independent_reference (__main__.qa_energy_detector_cf.test_010_matches_independent_reference) ... ok
+test_011_relative_mode_ignores_input_gain (__main__.qa_energy_detector_cf.test_011_relative_mode_ignores_input_gain) ... ok
+test_012_decision_is_any_occupied_bin (__main__.qa_energy_detector_cf.test_012_decision_is_any_occupied_bin) ... ok
+test_013_cfar_ratio_matches_theory (__main__.qa_energy_detector_cf.test_013_cfar_ratio_matches_theory) ... ok
+test_014_cfar_false_alarm_rate_for_any_noise_level (__main__.qa_energy_detector_cf.test_014_cfar_false_alarm_rate_for_any_noise_level) ... ok
+test_015_cfar_still_finds_the_tone (__main__.qa_energy_detector_cf.test_015_cfar_still_finds_the_tone) ... ok
+test_016_total_power_sees_a_wideband_signal (__main__.qa_energy_detector_cf.test_016_total_power_sees_a_wideband_signal) ... ok
+test_017_decision_mode_either (__main__.qa_energy_detector_cf.test_017_decision_mode_either) ... ok
+test_018_message_output_lists_the_bands (__main__.qa_energy_detector_cf.test_018_message_output_lists_the_bands) ... ok
+test_019_bad_new_arguments (__main__.qa_energy_detector_cf.test_019_bad_new_arguments) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 4.744s
+
+OK

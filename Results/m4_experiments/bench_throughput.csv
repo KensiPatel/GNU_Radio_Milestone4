@@ -1,0 +1,6 @@
+what,fft_size,avg_len,threshold_mode,throughput_Msps
+no detector (source -> head -> sink),-,-,-,197.32
+energy_detector_cf,256,1,relative,3.86
+energy_detector_cf,1024,8,absolute,16.24
+energy_detector_cf,1024,8,relative,12.51
+energy_detector_cf,4096,8,relative,32.22

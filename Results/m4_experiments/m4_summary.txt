@@ -1,0 +1,47 @@
+gr-isac M4 experiments
+Machine: Linux-6.18.44-fc-v445-x86_64-with-glibc2.39
+Python 3.12.3, numpy 1.26.4, scipy 1.11.4, GNU Radio 3.10.9.2
+
+Noise-uncertainty experiment: FFT 256, 8 averages, 4000 outputs per point, design Pfa 0.001, tone at -18 dB per sample (designed noise power 1).
+  err dB | Pfa abs (meas) | Pfa abs (theory) | Pfa rel (meas) | Pd abs | Pd rel
+   -2.0  |   0.00e+00     |   2.21e-07      |   1.02e-03     | 0.903  | 0.998
+   -1.0  |   2.05e-05     |   2.84e-05      |   1.02e-03     | 0.911  | 0.985
+   -0.5  |   1.56e-04     |   1.94e-04      |   1.02e-03     | 0.919  | 0.965
+   +0.0  |   9.86e-04     |   1.00e-03      |   1.02e-03     | 0.927  | 0.922
+   +0.5  |   3.94e-03     |   3.99e-03      |   1.02e-03     | 0.933  | 0.866
+   +1.0  |   1.26e-02     |   1.28e-02      |   1.02e-03     | 0.940  | 0.791
+   +2.0  |   7.40e-02     |   7.40e-02      |   1.02e-03     | 0.955  | 0.590
+   +3.0  |   2.35e-01     |   2.35e-01      |   1.02e-03     | 0.969  | 0.393
+Block in flowgraph vs core functions, differing flags / total flags: absolute 0 / 128000, relative 0 / 128000
+
+Baseline comparison: 2048 samples per decision, 4000 decisions per point, target band Pfa 0.01 (noise power assumed known).
+  Measured band Pfa on noise only (20000 decisions): A 0.0091, B 0.0082, C 0.0106
+  SNR per sample needed for Pd = 0.9 (dB):
+    narrowband: A -16.29   B -17.65   C -10.75
+    wideband  : A  -2.72   B  -0.69   C -10.71
+
+New features (M4): 2048 samples per decision, FFT 256 x 8, band Pfa 0.01, 4000 decisions per point.
+  Measured band Pfa on noise only (20000 decisions): M3 block 0.0109, new block 0.0104, time-domain 0.0091
+  SNR per sample needed for Pd = 0.9 (dB):
+    narrowband: M3 block -16.27   new block -16.10   time-domain -10.71
+    wideband  : M3 block  -2.74   new block  -8.98   time-domain -10.74
+  False-alarm rate when the real noise power is wrong (noise only):
+    error dB | per-bin, known noise | per-bin, relative | total power
+     -1.00   |       0.0000         |      0.0097       |   0.0000
+     -0.50   |       0.0010         |      0.0100       |   0.0000
+     -0.25   |       0.0030         |      0.0107       |   0.0000
+     +0.00   |       0.0088         |      0.0092       |   0.0057
+     +0.25   |       0.0222         |      0.0100       |   0.2392
+     +0.50   |       0.0573         |      0.0092       |   0.8770
+     +1.00   |       0.2750         |      0.0107       |   1.0000
+  Block in flowgraph against detect(): differing decisions 0 / 200
+
+Throughput benchmark: 16777216 samples per run, median of 3 runs.
+Input is complex64 from a Null Source (the speed of the FFT does not depend on the data).
+
+  no detector (source -> head -> sink)   fft     - avg  - -           197.32 MS/s
+  energy_detector_cf                     fft   256 avg  1 relative      3.86 MS/s
+  energy_detector_cf                     fft  1024 avg  8 absolute     16.24 MS/s
+  energy_detector_cf                     fft  1024 avg  8 relative     12.51 MS/s
+  energy_detector_cf                     fft  4096 avg  8 relative     32.22 MS/s
+
