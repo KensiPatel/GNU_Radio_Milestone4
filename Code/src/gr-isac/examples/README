@@ -1,2 +1,0 @@
-energy_detector_demo.grc: a tone in noise through the Energy Detector, writing the spectrum,
-occupancy flags and decision to files in /tmp. Compile with: grcc energy_detector_demo.grc
