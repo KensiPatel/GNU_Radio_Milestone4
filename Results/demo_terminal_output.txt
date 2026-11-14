@@ -1,0 +1,36 @@
+==================================================================
+TEST A: noise only
+==================================================================
+Block settings : FFT size 256, 8 averages, threshold 6.0 dB above noise floor
+Samples in     : 10240  ->  outputs produced: 5
+Bin width      : 3906 Hz   (0 Hz is bin 128)
+
+ output | band decision | occupied bins (bin number = frequency)
+      1 | free          | -  (none)
+      2 | free          | -  (none)
+      3 | free          | -  (none)
+      4 | free          | -  (none)
+      5 | free          | -  (none)
+
+Strongest bin  : 7  (-473 kHz), 1.32 dB
+Average of other bins (noise level): -0.27 dB   (true noise = 0 dB)
+Expected       : all outputs 'free', no occupied bins
+
+==================================================================
+TEST B: noise + tone at bin 160 (+125 kHz)
+==================================================================
+Block settings : FFT size 256, 8 averages, threshold 6.0 dB above noise floor
+Samples in     : 10240  ->  outputs produced: 5
+Bin width      : 3906 Hz   (0 Hz is bin 128)
+
+ output | band decision | occupied bins (bin number = frequency)
+      1 | OCCUPIED      | [159, 160, 161]  (+121 kHz, +125 kHz, +129 kHz)
+      2 | OCCUPIED      | [159, 160, 161]  (+121 kHz, +125 kHz, +129 kHz)
+      3 | OCCUPIED      | [159, 160, 161]  (+121 kHz, +125 kHz, +129 kHz)
+      4 | OCCUPIED      | [159, 160, 161]  (+121 kHz, +125 kHz, +129 kHz)
+      5 | OCCUPIED      | [159, 160, 161]  (+121 kHz, +125 kHz, +129 kHz)
+
+Strongest bin  : 160  (+125 kHz), 22.40 dB
+Average of other bins (noise level): -0.34 dB   (true noise = 0 dB)
+Expected       : all outputs 'OCCUPIED', occupied bins around 160 (the window spreads one tone over up to 3 neighbouring bins)
+

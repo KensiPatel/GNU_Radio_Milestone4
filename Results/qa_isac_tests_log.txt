@@ -1,0 +1,37 @@
+test_001_theory_numbers (__main__.qa_ofdm_isac.test_001_theory_numbers)
+Resolution and limits follow the textbook formulas. ... ok
+test_002_bad_arguments (__main__.qa_ofdm_isac.test_002_bad_arguments)
+Wrong settings are refused. ... ok
+test_003_frame_structure (__main__.qa_ofdm_isac.test_003_frame_structure)
+Unit power, cyclic prefix is a copy of the tail, demodulation gives the symbols back. ... ok
+test_004_tx_block (__main__.qa_ofdm_isac.test_004_tx_block)
+The transmitter block streams frame 0, then frame 1, and the seed decides the data. ... ok
+test_005_channel_noise_power (__main__.qa_ofdm_isac.test_005_channel_noise_power)
+With no target the output is noise of the requested power. ... ok
+test_006_channel_doppler_sign_and_gain (__main__.qa_ofdm_isac.test_006_channel_doppler_sign_and_gain)
+A target moving towards us shifts a tone up by 2 v fc / c, and the echo gain is right. ... ok
+test_007_channel_delay (__main__.qa_ofdm_isac.test_007_channel_delay)
+The echo of an impulse arrives at 2 R / c plus the filter latency, also between samples. ... ok
+test_008_single_target (__main__.qa_ofdm_isac.test_008_single_target)
+Range and speed of one target are found within a quarter of a resolution cell. ... ok
+test_009_two_targets_resolved (__main__.qa_ofdm_isac.test_009_two_targets_resolved)
+Two targets 5 range cells apart are both reported; two inside one cell give one report. ... ok
+test_010_noise_only_no_detection (__main__.qa_ofdm_isac.test_010_noise_only_no_detection)
+Noise alone gives no detection at pfa = 1e-7 (10 frames, about 330 000 cells). ... ok
+test_011_cfar_false_alarm_rate (__main__.qa_ofdm_isac.test_011_cfar_false_alarm_rate)
+On independent exponential cells the CA-CFAR gives the requested pfa. ... ok
+test_012_map_output_and_message (__main__.qa_ofdm_isac.test_012_map_output_and_message)
+The block outputs one map per frame (zero speed in the middle row) and a targets message. ... ok
+test_013_timing_and_ber (__main__.qa_ofdm_isac.test_013_timing_and_ber)
+The same waveform works as a data link: CP timing is found and the bits are right. ... ok
+test_014_ber_noise_only_is_half (__main__.qa_ofdm_isac.test_014_ber_noise_only_is_half)
+Without a signal the bits are random: BER about 0.5 (the test cannot pass by accident). ... ok
+test_015_energy_detector_sees_isac_signal (__main__.qa_ofdm_isac.test_015_energy_detector_sees_isac_signal)
+The M4 total-power decision of the Energy Detector sees the wideband OFDM signal. ... ok
+test_016_channel_function_equals_block (__main__.qa_ofdm_isac.test_016_channel_function_equals_block)
+The plain-Python channel function (used by the experiments) equals the block. ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.934s
+
+OK

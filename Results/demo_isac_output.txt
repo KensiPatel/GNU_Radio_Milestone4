@@ -1,0 +1,14 @@
+OFDM ISAC demo: 256 subcarriers (192 used), 128 symbols per frame, 7.5 MHz bandwidth, 5.8 GHz carrier
+Theory: range resolution 20.0 m, speed resolution 6.31 m/s
+True targets (range m, speed m/s, echo gain dB): [(300.0, 20.0, -20.0), (500.0, -45.0, -26.0)]
+frame 0: 2 target(s) detected
+    range   300.0 m   speed  +20.01 m/s   SNR  44.4 dB
+    range   500.0 m   speed  -45.00 m/s   SNR  42.0 dB
+frame 1: 2 target(s) detected
+    range   300.0 m   speed  +20.02 m/s   SNR  44.2 dB
+    range   500.0 m   speed  -44.98 m/s   SNR  41.3 dB
+frame 2: 2 target(s) detected
+    range   300.0 m   speed  +20.02 m/s   SNR  44.7 dB
+    range   500.0 m   speed  -45.02 m/s   SNR  41.7 dB
+Communication at 10 dB SNR: 69 bit errors in 73728 bits (BER 9.4e-04)
+map saved to /tmp/rundir/demo_isac_map.png

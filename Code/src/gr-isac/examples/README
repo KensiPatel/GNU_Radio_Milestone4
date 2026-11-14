@@ -1,0 +1,9 @@
+energy_detector_demo.grc: a tone in noise through the Energy Detector, writing the spectrum,
+occupancy flags and decision to files in /tmp. Compile with: grcc energy_detector_demo.grc
+
+isac_ofdm_demo.grc: the full ISAC chain (simulation, no hardware). OFDM transmitter ->
+channel with one moving target (300 m, 20 m/s) -> sensing receiver (range-Doppler map) -> file
+/tmp/isac_demo_map.f32, plus a message debug block that prints the detected targets.
+Compile with: grcc isac_ofdm_demo.grc   and run the resulting python file.
+The vector length of the file sink is 128 * 2 * (64 - 16) * 2 = 24576 floats per frame. If you change
+fft/cp/symbol numbers or padding in the receiver block, change this number too (n_doppler * n_range).

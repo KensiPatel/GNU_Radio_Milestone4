@@ -1,0 +1,103 @@
+== map
+map example: true [(300.0, 20.0), (450.0, -60.0), (150.0, 0.0)] detected [(300.0, 20.0), (450.0, -60.0), (149.9, 0.0)]
+   (0 s)
+== theory
+theory: B = 7.50 MHz, range resolution c/2B = 19.99 m, speed resolution = 6.31 m/s
+        max range (CP, minus filter latency) = 720 m, max speed = 404 m/s
+  Hann        two targets, range separation 0.50 cells: both found in   5 % of trials
+  Hann        two targets, range separation 0.75 cells: both found in  17 % of trials
+  Hann        two targets, range separation 1.00 cells: both found in  38 % of trials
+  Hann        two targets, range separation 1.25 cells: both found in  38 % of trials
+  Hann        two targets, range separation 1.50 cells: both found in  60 % of trials
+  Hann        two targets, range separation 2.00 cells: both found in 100 % of trials
+  Hann        two targets, range separation 2.50 cells: both found in 100 % of trials
+  Hann        two targets, range separation 3.00 cells: both found in 100 % of trials
+  Hann        two targets, speed separation 0.50 cells: both found in   3 % of trials
+  Hann        two targets, speed separation 0.75 cells: both found in   8 % of trials
+  Hann        two targets, speed separation 1.00 cells: both found in  37 % of trials
+  Hann        two targets, speed separation 1.25 cells: both found in  43 % of trials
+  Hann        two targets, speed separation 1.50 cells: both found in  47 % of trials
+  Hann        two targets, speed separation 2.00 cells: both found in  98 % of trials
+  Hann        two targets, speed separation 2.50 cells: both found in 100 % of trials
+  Hann        two targets, speed separation 3.00 cells: both found in 100 % of trials
+  rectangular two targets, range separation 0.50 cells: both found in   7 % of trials
+  rectangular two targets, range separation 0.75 cells: both found in   0 % of trials
+  rectangular two targets, range separation 1.00 cells: both found in   0 % of trials
+  rectangular two targets, range separation 1.25 cells: both found in   8 % of trials
+  rectangular two targets, range separation 1.50 cells: both found in  13 % of trials
+  rectangular two targets, range separation 2.00 cells: both found in  12 % of trials
+  rectangular two targets, range separation 2.50 cells: both found in  10 % of trials
+  rectangular two targets, range separation 3.00 cells: both found in   0 % of trials
+  rectangular two targets, speed separation 0.50 cells: both found in   7 % of trials
+  rectangular two targets, speed separation 0.75 cells: both found in  10 % of trials
+  rectangular two targets, speed separation 1.00 cells: both found in  12 % of trials
+  rectangular two targets, speed separation 1.25 cells: both found in  35 % of trials
+  rectangular two targets, speed separation 1.50 cells: both found in  32 % of trials
+  rectangular two targets, speed separation 2.00 cells: both found in  40 % of trials
+  rectangular two targets, speed separation 2.50 cells: both found in  53 % of trials
+  rectangular two targets, speed separation 3.00 cells: both found in  22 % of trials
+   (23 s)
+== accuracy
+  speed     0 echo SNR  -38 dB: Pd OFDM 0.00 (range+speed 0.00)  corr.non-coh. 0.00  corr.coherent 0.07  rms range nan m speed nan m/s
+  speed     0 echo SNR  -36 dB: Pd OFDM 0.00 (range+speed 0.00)  corr.non-coh. 0.02  corr.coherent 0.32  rms range nan m speed nan m/s
+  speed     0 echo SNR  -34 dB: Pd OFDM 0.00 (range+speed 0.00)  corr.non-coh. 0.02  corr.coherent 0.70  rms range nan m speed nan m/s
+  speed     0 echo SNR  -32 dB: Pd OFDM 0.05 (range+speed 0.05)  corr.non-coh. 0.05  corr.coherent 0.93  rms range 5.5 m speed 0.30 m/s
+  speed     0 echo SNR  -30 dB: Pd OFDM 0.30 (range+speed 0.30)  corr.non-coh. 0.27  corr.coherent 1.00  rms range 2.3 m speed 0.89 m/s
+  speed     0 echo SNR  -28 dB: Pd OFDM 0.67 (range+speed 0.67)  corr.non-coh. 0.58  corr.coherent 1.00  rms range 2.0 m speed 0.65 m/s
+  speed     0 echo SNR  -26 dB: Pd OFDM 0.95 (range+speed 0.95)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 1.5 m speed 0.58 m/s
+  speed     0 echo SNR  -24 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 1.2 m speed 0.50 m/s
+  speed     0 echo SNR  -22 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 1.0 m speed 0.32 m/s
+  speed     0 echo SNR  -20 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 0.9 m speed 0.27 m/s
+  speed     0 echo SNR  -18 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 0.5 m speed 0.19 m/s
+  speed     0 echo SNR  -16 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 0.5 m speed 0.17 m/s
+  speed     0 echo SNR  -14 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 0.4 m speed 0.12 m/s
+  speed     0 echo SNR  -12 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 0.3 m speed 0.11 m/s
+  speed     0 echo SNR  -10 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 1.00  rms range 0.2 m speed 0.09 m/s
+  speed   100 echo SNR  -38 dB: Pd OFDM 0.00 (range+speed 0.00)  corr.non-coh. 0.00  corr.coherent 0.00  rms range nan m speed nan m/s
+  speed   100 echo SNR  -36 dB: Pd OFDM 0.00 (range+speed 0.00)  corr.non-coh. 0.00  corr.coherent 0.00  rms range nan m speed nan m/s
+  speed   100 echo SNR  -34 dB: Pd OFDM 0.02 (range+speed 0.02)  corr.non-coh. 0.00  corr.coherent 0.00  rms range 3.3 m speed 2.55 m/s
+  speed   100 echo SNR  -32 dB: Pd OFDM 0.07 (range+speed 0.07)  corr.non-coh. 0.03  corr.coherent 0.00  rms range 2.1 m speed 1.12 m/s
+  speed   100 echo SNR  -30 dB: Pd OFDM 0.18 (range+speed 0.18)  corr.non-coh. 0.08  corr.coherent 0.00  rms range 2.2 m speed 1.12 m/s
+  speed   100 echo SNR  -28 dB: Pd OFDM 0.68 (range+speed 0.68)  corr.non-coh. 0.67  corr.coherent 0.00  rms range 2.0 m speed 0.77 m/s
+  speed   100 echo SNR  -26 dB: Pd OFDM 0.97 (range+speed 0.97)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 1.6 m speed 0.59 m/s
+  speed   100 echo SNR  -24 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 1.5 m speed 0.43 m/s
+  speed   100 echo SNR  -22 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 1.1 m speed 0.38 m/s
+  speed   100 echo SNR  -20 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 0.9 m speed 0.30 m/s
+  speed   100 echo SNR  -18 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 0.7 m speed 0.25 m/s
+  speed   100 echo SNR  -16 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 0.5 m speed 0.20 m/s
+  speed   100 echo SNR  -14 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 0.4 m speed 0.13 m/s
+  speed   100 echo SNR  -12 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 0.3 m speed 0.10 m/s
+  speed   100 echo SNR  -10 dB: Pd OFDM 1.00 (range+speed 1.00)  corr.non-coh. 1.00  corr.coherent 0.00  rms range 0.2 m speed 0.09 m/s
+   (37 s)
+== pfa
+  no window, no padding      requested 1e-02 measured 1.02e-02  ratio 1.02
+  no window, no padding      requested 1e-03 measured 9.81e-04  ratio 0.98
+  no window, no padding      requested 1e-04 measured 8.14e-05  ratio 0.81
+  Hann, no padding           requested 1e-02 measured 1.09e-02  ratio 1.09
+  Hann, no padding           requested 1e-03 measured 1.19e-03  ratio 1.19
+  Hann, no padding           requested 1e-04 measured 1.38e-04  ratio 1.38
+  Hann, padding 2 (default)  requested 1e-02 measured 1.35e-02  ratio 1.35
+  Hann, padding 2 (default)  requested 1e-03 measured 1.86e-03  ratio 1.86
+  Hann, padding 2 (default)  requested 1e-04 measured 2.72e-04  ratio 2.72
+   (1 s)
+== ber
+  SNR  0 dB: BER pilot-estimated 1.90e-01 | with echo -15 dB 1.89e-01 | perfect CSI 1.24e-01 | QPSK theory 1.24e-01
+  SNR  2 dB: BER pilot-estimated 1.23e-01 | with echo -15 dB 1.25e-01 | perfect CSI 7.27e-02 | QPSK theory 7.30e-02
+  SNR  4 dB: BER pilot-estimated 6.67e-02 | with echo -15 dB 6.92e-02 | perfect CSI 3.38e-02 | QPSK theory 3.36e-02
+  SNR  6 dB: BER pilot-estimated 2.75e-02 | with echo -15 dB 3.09e-02 | perfect CSI 1.09e-02 | QPSK theory 1.06e-02
+  SNR  8 dB: BER pilot-estimated 7.73e-03 | with echo -15 dB 9.68e-03 | perfect CSI 1.89e-03 | QPSK theory 1.86e-03
+  SNR 10 dB: BER pilot-estimated 1.04e-03 | with echo -15 dB 1.92e-03 | perfect CSI 1.22e-04 | QPSK theory 1.30e-04
+  SNR 12 dB: BER pilot-estimated 5.43e-05 | with echo -15 dB 1.90e-04 | perfect CSI 5.43e-06 | QPSK theory 2.14e-06
+   (6 s)
+== ici
+  target speed     0 m/s: peak above map median = 63.1 dB
+  target speed    20 m/s: peak above map median = 62.1 dB
+  target speed    60 m/s: peak above map median = 59.0 dB
+  target speed   120 m/s: peak above map median = 54.5 dB
+  target speed   250 m/s: peak above map median = 48.1 dB
+  target speed   350 m/s: peak above map median = 44.8 dB
+   (0 s)
+== speed
+  sensing core: 4.6 ms per frame, the frame lasts 4.10 ms at 10 MS/s -> takes 1.12 x the signal duration (1.0 = just real time)
+  whole flowgraph (tx, channel, sensing): 3.35 MS/s -> takes 3.0 x the signal duration at 10 MS/s
+   (0 s)

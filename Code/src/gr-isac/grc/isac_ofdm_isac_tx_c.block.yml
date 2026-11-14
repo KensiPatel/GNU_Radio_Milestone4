@@ -1,0 +1,55 @@
+id: isac_ofdm_isac_tx_c
+label: OFDM ISAC Transmitter
+category: '[isac]'
+flags: [python]
+
+templates:
+  imports: from gnuradio import isac
+  make: isac.ofdm_isac_tx_c(${fft_size}, ${cp_len}, ${n_symbols}, ${n_active}, ${pilot_spacing}, ${sample_rate}, ${carrier_freq}, ${seed})
+
+parameters:
+- id: fft_size
+  label: FFT Size
+  dtype: int
+  default: 256
+- id: cp_len
+  label: Cyclic Prefix
+  dtype: int
+  default: 64
+- id: n_symbols
+  label: OFDM Symbols per Frame
+  dtype: int
+  default: 128
+- id: n_active
+  label: Active Subcarriers
+  dtype: int
+  default: 192
+- id: pilot_spacing
+  label: Pilot Spacing (0 = none)
+  dtype: int
+  default: 4
+- id: sample_rate
+  label: Sample Rate (Hz)
+  dtype: float
+  default: 10e6
+- id: carrier_freq
+  label: Carrier Frequency (Hz)
+  dtype: float
+  default: 5.8e9
+- id: seed
+  label: Data Seed
+  dtype: int
+  default: 1
+
+outputs:
+- label: out
+  domain: stream
+  dtype: complex
+
+documentation: |-
+  Transmitter of the ISAC chain. A stream of OFDM frames with random QPSK data,
+  average power 1.0. The same signal is used for communication (the QPSK data)
+  and for sensing (the receiver knows it). Frame k starts at sample k * frame
+  length, frame length = OFDM Symbols * (FFT Size + Cyclic Prefix).
+
+file_format: 1

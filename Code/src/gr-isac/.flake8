@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 125
+exclude = build
+per-file-ignores =
+    scripts/*.py:E402
+    python/isac/__init__.py:F401,F403

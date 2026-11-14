@@ -1,0 +1,103 @@
+id: isac_ofdm_sensing_rx_ccf
+label: OFDM Sensing Receiver
+category: '[isac]'
+flags: [python]
+
+templates:
+  imports: from gnuradio import isac
+  make: isac.ofdm_sensing_rx_ccf(${fft_size}, ${cp_len}, ${n_symbols}, ${n_active}, ${pilot_spacing}, ${sample_rate}, ${carrier_freq}, ${pfa}, ${use_window}, ${range_pad}, ${doppler_pad}, ${guard_cells}, ${train_cells}, ${latency_samples})
+  callbacks:
+  - set_pfa(${pfa})
+
+parameters:
+- id: fft_size
+  label: FFT Size
+  dtype: int
+  default: 256
+- id: cp_len
+  label: Cyclic Prefix
+  dtype: int
+  default: 64
+- id: n_symbols
+  label: OFDM Symbols per Frame
+  dtype: int
+  default: 128
+- id: n_active
+  label: Active Subcarriers
+  dtype: int
+  default: 192
+- id: pilot_spacing
+  label: Pilot Spacing (0 = none)
+  dtype: int
+  default: 4
+- id: sample_rate
+  label: Sample Rate (Hz)
+  dtype: float
+  default: 10e6
+- id: carrier_freq
+  label: Carrier Frequency (Hz)
+  dtype: float
+  default: 5.8e9
+- id: pfa
+  label: Pfa per Map Cell
+  dtype: float
+  default: 1e-8
+- id: use_window
+  label: Hann Window
+  dtype: bool
+  default: 'True'
+  options: ['True', 'False']
+  option_labels: ['On', 'Off']
+- id: range_pad
+  label: Range Zero-padding
+  dtype: int
+  default: 2
+  hide: part
+- id: doppler_pad
+  label: Doppler Zero-padding
+  dtype: int
+  default: 2
+  hide: part
+- id: guard_cells
+  label: CFAR Guard Cells (Doppler, Range)
+  dtype: raw
+  default: (4, 4)
+  hide: part
+- id: train_cells
+  label: CFAR Training Cells (Doppler, Range)
+  dtype: raw
+  default: (8, 8)
+  hide: part
+- id: latency_samples
+  label: Channel Latency (samples)
+  dtype: int
+  default: 16
+
+inputs:
+- label: echo
+  domain: stream
+  dtype: complex
+- label: tx
+  domain: stream
+  dtype: complex
+
+outputs:
+- label: map_db
+  domain: stream
+  dtype: float
+  vlen: ${ n_symbols * doppler_pad * (cp_len - latency_samples) * range_pad }
+- domain: message
+  id: targets
+  optional: true
+
+documentation: |-
+  Radar receiver of the ISAC chain. Input echo is the received signal, input tx is the
+  transmitted signal (the receiver divides one by the other). For every frame it outputs the
+  range-Doppler map in dB (rows = Doppler from negative to positive speed, the middle row is zero
+  speed; columns = range from 0 up to the largest range the cyclic prefix allows) and sends a
+  message "targets": a list of [range in m, speed in m/s, SNR in dB] for every target found by a
+  2-D CA-CFAR detector. Positive speed = moving towards the receiver.
+  FFT Size, Cyclic Prefix, OFDM Symbols, Active Subcarriers, Pilot Spacing, Sample Rate and
+  Carrier Frequency must be the same as in the transmitter.
+
+file_format: 1

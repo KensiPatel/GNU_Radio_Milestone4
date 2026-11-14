@@ -1,0 +1,70 @@
+id: isac_moving_target_channel_cc
+label: Moving Target Channel
+category: '[isac]'
+flags: [python]
+
+templates:
+  imports: from gnuradio import isac
+  make: isac.moving_target_channel_cc(${targets}, ${sample_rate}, ${carrier_freq}, ${noise_power}, ${one_way}, ${n_taps}, ${max_range}, ${seed})
+  callbacks:
+  - set_noise_power(${noise_power})
+  - set_targets(${targets})
+
+parameters:
+- id: targets
+  label: Targets
+  dtype: raw
+  default: '[(300.0, 20.0, -20.0)]'
+  hide: none
+- id: sample_rate
+  label: Sample Rate (Hz)
+  dtype: float
+  default: 10e6
+- id: carrier_freq
+  label: Carrier Frequency (Hz)
+  dtype: float
+  default: 5.8e9
+- id: noise_power
+  label: Noise Power (linear)
+  dtype: float
+  default: 1e-3
+- id: one_way
+  label: Path
+  dtype: bool
+  default: 'False'
+  options: ['False', 'True']
+  option_labels: [Radar echo (two-way), Communication link (one-way)]
+- id: n_taps
+  label: Delay Filter Taps
+  dtype: int
+  default: 33
+  hide: part
+- id: max_range
+  label: Largest Range (m)
+  dtype: float
+  default: 1000.0
+  hide: part
+- id: seed
+  label: Noise Seed
+  dtype: int
+  default: 7
+  hide: part
+
+inputs:
+- label: in
+  domain: stream
+  dtype: complex
+
+outputs:
+- label: out
+  domain: stream
+  dtype: complex
+
+documentation: |-
+  Simulated echo channel. Targets is a list of (range in m, speed in m/s, echo gain in dB)
+  tuples. A positive speed means the target moves towards the radar. Every path gets a delay
+  of 2R/c, a Doppler shift of 2 v fc / c and the gain, then complex Gaussian noise is added.
+  The delay filter adds a fixed latency of (taps - 1) / 2 samples; give this number to the
+  Sensing Receiver as Channel Latency.
+
+file_format: 1
